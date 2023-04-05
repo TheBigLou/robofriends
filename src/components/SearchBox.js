@@ -1,16 +1,21 @@
 import React from 'react';
 
-const SearchBox = ({ searchChange }) => {
-	return (
-		<div className='pa2'>
-			<input
-			className='pa3 ba b--green bg-lightest-blue'
-			type='search'
-			placeholder='Search Robots'
-			onChange={searchChange} // when onChange event is triggered (i.e. type into the box), call the searchChange function with the input. searchChange is a prop of function onSearchChange, defined in App.js
-			/>
-		</div>
-		);
+const SearchBox = ({ searchChange, searchSubmit, resetSearch }) => {
+    return (
+        <div className="pa2">
+            <form onSubmit={searchSubmit}>
+            <input
+                type='search'
+                placeholder='Search robots'
+                className='pa3 ba b--green bg-lightest-blue shadow-4'
+                onChange={searchChange}
+            />
+            <br />
+            <button type='button' className="mr2 mt3 link dim ph3 pv2 mb2 b--green bg-lightest-blue shadow-4" onClick={searchSubmit}>Search</button>
+            <input type='reset' className="ml2 mt3 link dim ph3 pv2 mb2 b--green shadow-4" onClick={resetSearch} />
+            </form>
+        </div>
+    );
 }
 
 export default SearchBox;

@@ -1,23 +1,36 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Card from './Card';
 
-const CardList = ({robots}) => {
-	return (
-		<Fragment>  {/*remember to import {Fragment} with React*/}
-			{
-				robots.map((user, index) => {
-					return (
-						<Card
-						key={index}
-						id={robots[index].id}
-						name={robots[index].name}
-						email={robots[index].email}
-						/>
-					);
-				})
-			}
-		</Fragment>	
-	);
+const CardList = ({ robots }) => {
+    // const cardComponent = robots.map((user, i) => {
+    //     return (
+    //         <Card
+    //             id={robots[i].id}
+    //             name={robots[i].name}
+    //             email={robots[i].email}
+    //             key={robots[i].id}
+    //         />
+    //         );
+    // });
+    
+    // we can just put this entire function within the return statement below, where before we were returning {cardComponent}
+
+    return (
+        <div className="card-list">
+        {
+            robots.map((user, i) => {
+            return (
+                <Card
+                    id={robots[i].id}
+                    name={robots[i].name}
+                    email={robots[i].email}
+                    key={robots[i].id}
+                />
+                )
+            })
+        }
+        </div>
+    );
 }
 
 export default CardList;
